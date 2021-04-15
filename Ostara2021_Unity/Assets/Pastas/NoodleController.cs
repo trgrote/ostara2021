@@ -21,6 +21,9 @@ public class NoodleController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float endMoveForce;
     [SerializeField] private float midMoveForce;
+    [SerializeField]
+    [Tooltip("the angle above horizontal to apply movement force")]
+    [Range(0, 90)] private float moveVertAngle = 0.0f;
 
     [Header("Lift")]
     [SerializeField] private float endLiftForce;
@@ -36,12 +39,16 @@ public class NoodleController : MonoBehaviour
     // When true, apply head movement forces to midPart 
     private bool isControllingMid = false;
 
+    private Quaternion vertMovementRotation;
+
     private Vector2 headMoveVector;
     private Vector2 tailMoveVector;
 
     private float headLift;
     private float tailLift;
     private float midLift;
+
+
 
     // Start is called before the first frame update
     void Awake()
@@ -106,6 +113,7 @@ public class NoodleController : MonoBehaviour
 
         headGrabber = MakeGrabber(head.gameObject);
         tailGrabber = MakeGrabber(tail.gameObject);
+
     }
 
     void FixedUpdate()
@@ -145,7 +153,12 @@ public class NoodleController : MonoBehaviour
     {
         Quaternion direction = cameraDirection.rotation;
         Vector3 movementVector = new Vector3(xz.x, 0, xz.y);
-        return direction * movementVector;
+
+        // This could be moved to start for efficiency if it's a heavy calc
+        vertMovementRotation = Quaternion.AngleAxis(moveVertAngle, Vector3.left);
+
+        // Adjust horizontal movement to camera angle, then adjust that to vertical rotation
+        return vertMovementRotation * (direction * movementVector);
     }
 
     Grabber MakeGrabber(GameObject obj)
