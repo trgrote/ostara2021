@@ -21,10 +21,8 @@ public class Grabber : MonoBehaviour
 
     void Grab(Rigidbody rbToGrab)
     {
-        print("Can grab at " + nextGrabbableTime);
         if (Time.time >= nextGrabbableTime)
         {
-            print("Time is " + Time.time);
             EnableRelease(false);
             GameObject.Destroy(joint);
             joint = gameObject.AddComponent<HingeJoint>();
@@ -42,7 +40,6 @@ public class Grabber : MonoBehaviour
     {
         if (isReleaseEnabled)
         {
-            print("Releasing");
             nextGrabbableTime = Time.time + releaseToGrabCooldown;
             GameObject.Destroy(joint);
             EnableRelease(false);
