@@ -703,7 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089a8f581f7067147be1dd0dd4cb8c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentMass: 1
+  segmentMass: 1.25
   colliderRadius: 0.001
   colliderHeight: 0.004
   twistability: 3.4
@@ -716,8 +716,7 @@ MonoBehaviour:
   bendContactDistance: 2
   colliderPhysicsMaterial: {fileID: 13400000, guid: 7f20dfc69ce71f5439b4b0ab32d79615, type: 2}
   cameraFollowPoint: {fileID: 4858789440255169140}
-  firstBone: {fileID: 0}
-  lastBone: {fileID: 0}
+  bones: []
 --- !u!114 &8865923707878413025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,11 +729,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edbfc79588390045bccae2e784dc7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noodlePhysics: {fileID: 0}
-  headPart: {fileID: 0}
-  tailPart: {fileID: 0}
-  moveForce: 0
-  liftForce: 0
+  cameraDirection: {fileID: 0}
+  headGrabber: {fileID: 0}
+  tailGrabber: {fileID: 0}
+  endMoveForce: 0
+  midMoveForce: 0
+  endLiftForce: 0
+  midLiftForce: 0
+  grabCooldown: 0.5
+  alwaysGrab: 0
 --- !u!1 &8851962437734696617
 GameObject:
   m_ObjectHideFlags: 0

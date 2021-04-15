@@ -14,8 +14,8 @@ public class NoodleController : MonoBehaviour
     private Rigidbody tailPart;
     private Rigidbody midPart;
 
-    private Grabber headGrabber;
-    private Grabber tailGrabber;
+    public Grabber headGrabber;
+    public Grabber tailGrabber;
 
 
     [Header("Movement")]
@@ -25,6 +25,13 @@ public class NoodleController : MonoBehaviour
     [Header("Lift")]
     [SerializeField] private float endLiftForce;
     [SerializeField] private float midLiftForce;
+
+    [Header("Climbing")]
+    [SerializeField] private float grabCooldown = 0.5f;
+
+    [SerializeField]
+    [Tooltip("Whether noodle will grab while raising an end")]
+    private bool alwaysGrab = false;
 
     // When true, apply head movement forces to midPart 
     private bool isControllingMid = false;
@@ -53,6 +60,15 @@ public class NoodleController : MonoBehaviour
         controls.Noodle.RaiseHead.canceled += ctx => headLift = 0.0f;
         controls.Noodle.RaiseTail.canceled += ctx => tailLift = 0.0f;
 
+        // 
+        if (!alwaysGrab)
+        {
+            controls.Noodle.RaiseHead.performed += ctx => headGrabber.EnableGrab(false);
+            controls.Noodle.RaiseTail.performed += ctx => tailGrabber.EnableGrab(false);
+            controls.Noodle.RaiseHead.canceled += ctx => headGrabber.EnableGrab(true);
+            controls.Noodle.RaiseTail.canceled += ctx => tailGrabber.EnableGrab(true);
+        }
+
         // Allow releasing grabber after letting go of trigger once
         controls.Noodle.RaiseHead.canceled += ctx => headGrabber.EnableRelease(true);
         controls.Noodle.RaiseTail.canceled += ctx => tailGrabber.EnableRelease(true);
@@ -80,12 +96,16 @@ public class NoodleController : MonoBehaviour
     {
         noodlePhysics = transform.GetComponent<NoodlePhysics>();
 
-        headPart = noodlePhysics.FirstBone.GetComponent<Rigidbody>();
-        tailPart = noodlePhysics.LastBone.GetComponent<Rigidbody>();
-        midPart = noodlePhysics.MidBone.GetComponent<Rigidbody>();
+        Transform head = noodlePhysics.FirstBone;
+        Transform tail = noodlePhysics.LastBone;
+        Transform mid = noodlePhysics.MidBone;
 
-        headGrabber = headPart.gameObject.GetComponent<Grabber>();
-        tailGrabber = tailPart.gameObject.GetComponent<Grabber>();
+        headPart = head.GetComponent<Rigidbody>();
+        tailPart = tail.GetComponent<Rigidbody>();
+        midPart = mid.GetComponent<Rigidbody>();
+
+        headGrabber = MakeGrabber(head.gameObject);
+        tailGrabber = MakeGrabber(tail.gameObject);
     }
 
     void FixedUpdate()
@@ -128,6 +148,10 @@ public class NoodleController : MonoBehaviour
         return direction * movementVector;
     }
 
-    // void Jump()
-    // { }
+    Grabber MakeGrabber(GameObject obj)
+    {
+        Grabber grabber = obj.AddComponent<Grabber>();
+        grabber.releaseToGrabCooldown = grabCooldown;
+        return grabber;
+    }
 }

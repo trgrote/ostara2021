@@ -6,6 +6,7 @@ public class Grabber : MonoBehaviour
 {
     private HingeJoint joint;
     private bool isReleaseEnabled = false;
+    private bool isGrabEnabled = true;
     public float releaseToGrabCooldown = 0.5f;
     private float nextGrabbableTime = 0f;
 
@@ -19,9 +20,19 @@ public class Grabber : MonoBehaviour
 
     }
 
+    public void EnableRelease(bool enabled)
+    {
+        isReleaseEnabled = enabled;
+    }
+
+    public void EnableGrab(bool enabled)
+    {
+        isGrabEnabled = enabled;
+    }
+
     void Grab(Rigidbody rbToGrab)
     {
-        if (Time.time >= nextGrabbableTime)
+        if (isGrabEnabled && Time.time >= nextGrabbableTime)
         {
             EnableRelease(false);
             GameObject.Destroy(joint);
@@ -29,11 +40,6 @@ public class Grabber : MonoBehaviour
             joint.connectedBody = rbToGrab;
             joint.enableCollision = false;
         }
-    }
-
-    public void EnableRelease(bool enabled)
-    {
-        isReleaseEnabled = enabled;
     }
 
     public void Release()
