@@ -61,7 +61,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: moveForce
-      value: 140
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: endLiftForce
+      value: 12000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: endMoveForce
+      value: 13000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: midLiftForce
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: midMoveForce
+      value: 18000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}

@@ -7,25 +7,35 @@ public class NoodleController : MonoBehaviour
 {
     NoodleControls controls;
 
-    public NoodlePhysics noodlePhysics;
-    public Rigidbody headPart;
-    public Rigidbody tailPart;
+    private NoodlePhysics noodlePhysics;
+    private Rigidbody headPart;
+    private Rigidbody tailPart;
+    private Rigidbody midPart;
 
-    [SerializeField] private float moveForce;
-    [SerializeField] private float liftForce;
+
+    [Header("Movement")]
+    [SerializeField] private float endMoveForce;
+    [SerializeField] private float midMoveForce;
+
+    [Header("Lift")]
+    [SerializeField] private float endLiftForce;
+    [SerializeField] private float midLiftForce;
+
+    // When true, apply head movement forces to midPart 
+    private bool isControllingMid = false;
 
     private Vector2 headMoveVector;
     private Vector2 tailMoveVector;
 
     private float headLift;
     private float tailLift;
+    private float midLift;
 
     // Start is called before the first frame update
     void Awake()
     {
         controls = new NoodleControls();
 
-        // controls.Noodle.Jump.performed += ctx => Jump();
 
         controls.Noodle.MoveHead.performed += ctx => headMoveVector = ctx.ReadValue<Vector2>();
         controls.Noodle.MoveTail.performed += ctx => tailMoveVector = ctx.ReadValue<Vector2>();
@@ -36,6 +46,12 @@ public class NoodleController : MonoBehaviour
         controls.Noodle.RaiseTail.performed += ctx => tailLift = ctx.ReadValue<float>();
         controls.Noodle.RaiseHead.canceled += ctx => headLift = 0.0f;
         controls.Noodle.RaiseTail.canceled += ctx => tailLift = 0.0f;
+
+        controls.Noodle.RaiseMid.performed += ctx => midLift = 1f;
+        controls.Noodle.RaiseMid.canceled += ctx => midLift = 0f;
+
+        controls.Noodle.ControlMid.performed += ctx => isControllingMid = true;
+        controls.Noodle.ControlMid.canceled += ctx => isControllingMid = false;
     }
 
     void OnEnable()
@@ -51,17 +67,34 @@ public class NoodleController : MonoBehaviour
     void Start()
     {
         noodlePhysics = transform.GetComponent<NoodlePhysics>();
-        headPart = noodlePhysics.firstBone.GetComponent<Rigidbody>();
-        tailPart = noodlePhysics.lastBone.GetComponent<Rigidbody>();
+        headPart = noodlePhysics.FirstBone.GetComponent<Rigidbody>();
+        tailPart = noodlePhysics.LastBone.GetComponent<Rigidbody>();
+        midPart = noodlePhysics.MidBone.GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
-        headPart.AddForce(vector3FromXZ(headMoveVector) * moveForce, ForceMode.Force);
-        tailPart.AddForce(vector3FromXZ(tailMoveVector) * moveForce, ForceMode.Force);
+        float t = Time.fixedDeltaTime;
+        if (isControllingMid)
+        {
+            midPart.AddForce(vector3FromXZ(headMoveVector) * midMoveForce * t, ForceMode.Force);
+        }
+        else
+        {
+            headPart.AddForce(vector3FromXZ(headMoveVector) * endMoveForce * t, ForceMode.Force);
+            tailPart.AddForce(vector3FromXZ(tailMoveVector) * endMoveForce * t, ForceMode.Force);
+        }
 
-        headPart.AddForce(new Vector3(0, headLift, 0) * liftForce, ForceMode.Force);
-        tailPart.AddForce(new Vector3(0, tailLift, 0) * liftForce, ForceMode.Force);
+        // Can lift EITHER middle or ends
+        if (midLift > 0)
+        {
+            midPart.AddForce(new Vector3(0, midLift, 0) * midLiftForce * t, ForceMode.Force);
+        }
+        else
+        {
+            headPart.AddForce(new Vector3(0, headLift, 0) * endLiftForce * t, ForceMode.Force);
+            tailPart.AddForce(new Vector3(0, tailLift, 0) * endLiftForce * t, ForceMode.Force);
+        }
     }
 
     Vector3 vector3FromXZ(Vector2 xz)

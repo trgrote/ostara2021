@@ -310,6 +310,36 @@ Transform:
   m_Father: {fileID: 5575564392825356333}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4858789440255169140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8309608094880798885}
+  m_Layer: 0
+  m_Name: CameraFollowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8309608094880798885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4858789440255169140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5124172207394708527}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5069423979311595164
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +459,7 @@ Transform:
   m_LocalPosition: {x: -1.593, y: 0.00000023841858, z: 1.642}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8309608094880798885}
   - {fileID: 2066232548824621557}
   - {fileID: 4786864067813834642}
   m_Father: {fileID: 0}
@@ -556,7 +587,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 5124172207394708527}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &502789203163117154
 SkinnedMeshRenderer:
@@ -658,7 +689,7 @@ Transform:
   m_Children:
   - {fileID: 5454553911512469670}
   m_Father: {fileID: 5124172207394708527}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4653922675511810461
 MonoBehaviour:
@@ -684,6 +715,7 @@ MonoBehaviour:
   bendDampening: 4.27
   bendContactDistance: 2
   colliderPhysicsMaterial: {fileID: 13400000, guid: 7f20dfc69ce71f5439b4b0ab32d79615, type: 2}
+  cameraFollowPoint: {fileID: 4858789440255169140}
   firstBone: {fileID: 0}
   lastBone: {fileID: 0}
 --- !u!114 &8865923707878413025

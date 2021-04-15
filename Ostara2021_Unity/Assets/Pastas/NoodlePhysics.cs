@@ -19,8 +19,24 @@ public class NoodlePhysics : MonoBehaviour
 
     [SerializeField] private PhysicMaterial colliderPhysicsMaterial;
 
-    public Transform firstBone;
-    public Transform lastBone;
+    [SerializeField]
+    [Tooltip("Will be updated with a central location for the noodle")]
+    private GameObject cameraFollowPoint;
+
+    public List<Transform> bones;
+
+    public Transform FirstBone
+    {
+        get => bones[0];
+    }
+    public Transform LastBone
+    {
+        get => bones[bones.Count - 1];
+    }
+    public Transform MidBone
+    {
+        get => bones[bones.Count / 2];
+    }
 
     // [SerializeField] private GameObject partPrefab, parentObject;
     // [SerializeField] [Range(1, 100)] private int segments = 5;
@@ -28,84 +44,93 @@ public class NoodlePhysics : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        InitializeSubParts(transform);
-        firstBone = transform.GetChild(0);
+        InitializeBones(transform);
+
+        print(bones);
+        print(bones.Count);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        UpdateCameraFollowPoint();
     }
 
-    void InitializeSubParts(Transform parent)
+    void InitializeBones(Transform parent)
     {
-        print(parent.name);
-        print(parent.childCount);
-        for (int i = 0; i < parent.childCount; i++)
+        if (parent.childCount == 0) return;
+
+        var child = parent.GetChild(0);
+        bones.Add(child);
+
+        // Rigidbody
+        print("adding rigidbody to" + child.name);
+        var childRigidbody = child.gameObject.AddComponent<Rigidbody>();
+        childRigidbody.useGravity = true;
+        childRigidbody.isKinematic = false;
+        childRigidbody.freezeRotation = false;
+        childRigidbody.mass = segmentMass;
+
+
+        // Collider
+        var collider = child.gameObject.AddComponent<CapsuleCollider>();
+        collider.center = Vector3.zero;
+        collider.radius = colliderRadius;
+        collider.height = colliderHeight;
+        collider.material = colliderPhysicsMaterial;
+
+        // Joint
+        // TODO maybe set the parent object as an articulationbody?
+        Rigidbody parentRigidbody = parent.GetComponent<Rigidbody>();
+        if (parentRigidbody)
         {
-            var child = parent.GetChild(i);
-            lastBone = child;
+            CharacterJoint joint = child.gameObject.AddComponent<CharacterJoint>();
+            joint.connectedBody = parent.GetComponent<Rigidbody>();
+            joint.enableCollision = true;
 
-            // Rigidbody
-            print("adding rigidbody to" + child.name);
-            var childRigidbody = child.gameObject.AddComponent<Rigidbody>();
-            childRigidbody.useGravity = true;
-            childRigidbody.isKinematic = false;
-            childRigidbody.freezeRotation = false;
-            childRigidbody.mass = segmentMass;
+            SoftJointLimit lowTwistLimit = joint.lowTwistLimit;
+            lowTwistLimit.limit = -twistability;
+            lowTwistLimit.contactDistance = twistContactDistance;
+            joint.lowTwistLimit = lowTwistLimit;
 
+            SoftJointLimit highTwistLimit = joint.highTwistLimit;
+            highTwistLimit.limit = twistability;
+            highTwistLimit.contactDistance = twistContactDistance;
+            joint.highTwistLimit = highTwistLimit;
 
-            // Collider
-            var collider = child.gameObject.AddComponent<CapsuleCollider>();
-            collider.center = Vector3.zero;
-            collider.radius = colliderRadius;
-            collider.height = colliderHeight;
-            collider.material = colliderPhysicsMaterial;
+            SoftJointLimit swing1Limit = joint.swing1Limit;
+            swing1Limit.limit = bendability;
+            swing1Limit.contactDistance = bendContactDistance;
+            joint.swing1Limit = swing1Limit;
 
-            // Joint
-            // TODO maybe set the parent object as an articulationbody?
-            Rigidbody parentRigidbody = parent.GetComponent<Rigidbody>();
-            if (parentRigidbody)
-            {
-                CharacterJoint joint = child.gameObject.AddComponent<CharacterJoint>();
-                joint.connectedBody = parent.GetComponent<Rigidbody>();
-                joint.enableCollision = true;
+            SoftJointLimit swing2Limit = joint.swing2Limit;
+            swing2Limit.limit = bendability;
+            swing2Limit.contactDistance = bendContactDistance;
+            joint.swing2Limit = swing2Limit;
 
-                SoftJointLimit lowTwistLimit = joint.lowTwistLimit;
-                lowTwistLimit.limit = -twistability;
-                lowTwistLimit.contactDistance = twistContactDistance;
-                joint.lowTwistLimit = lowTwistLimit;
+            SoftJointLimitSpring twistLimitSpring = joint.twistLimitSpring;
+            twistLimitSpring.spring = twistSpringiness;
+            twistLimitSpring.damper = twistDampening;
+            joint.twistLimitSpring = twistLimitSpring;
 
-                SoftJointLimit highTwistLimit = joint.highTwistLimit;
-                highTwistLimit.limit = twistability;
-                highTwistLimit.contactDistance = twistContactDistance;
-                joint.highTwistLimit = highTwistLimit;
-
-                SoftJointLimit swing1Limit = joint.swing1Limit;
-                swing1Limit.limit = bendability;
-                swing1Limit.contactDistance = bendContactDistance;
-                joint.swing1Limit = swing1Limit;
-
-                SoftJointLimit swing2Limit = joint.swing2Limit;
-                swing2Limit.limit = bendability;
-                swing2Limit.contactDistance = bendContactDistance;
-                joint.swing2Limit = swing2Limit;
-
-                SoftJointLimitSpring twistLimitSpring = joint.twistLimitSpring;
-                twistLimitSpring.spring = twistSpringiness;
-                twistLimitSpring.damper = twistDampening;
-                joint.twistLimitSpring = twistLimitSpring;
-
-                SoftJointLimitSpring swingLimitSpring = joint.swingLimitSpring;
-                swingLimitSpring.spring = bendSpringiness;
-                swingLimitSpring.damper = bendDampening;
-                joint.swingLimitSpring = swingLimitSpring;
-            }
-
-
-            // Recursive
-            InitializeSubParts(child);
+            SoftJointLimitSpring swingLimitSpring = joint.swingLimitSpring;
+            swingLimitSpring.spring = bendSpringiness;
+            swingLimitSpring.damper = bendDampening;
+            joint.swingLimitSpring = swingLimitSpring;
         }
+
+
+        // Recursive
+        InitializeBones(child);
+    }
+
+    // Sets camera follow point to midpoint of first and last segment
+    void UpdateCameraFollowPoint()
+    {
+        cameraFollowPoint.transform.position = Vector3.Lerp(
+            FirstBone.position,
+            LastBone.position,
+            0.5f
+        );
     }
 }

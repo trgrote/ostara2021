@@ -19,7 +19,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
             ""id"": ""cce92585-2a19-4b33-af65-6592b1d2c393"",
             ""actions"": [
                 {
-                    ""name"": ""Jump"",
+                    ""name"": ""RaiseMid"",
                     ""type"": ""Button"",
                     ""id"": ""561d305f-7dd6-455b-b100-dcd20856d22d"",
                     ""expectedControlType"": ""Button"",
@@ -57,6 +57,14 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ControlMid"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca9b82cd-4bb7-4257-9ee5-ecdd38e057e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -67,7 +75,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Jump"",
+                    ""action"": ""RaiseMid"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -114,6 +122,17 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                     ""action"": ""RaiseTail"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd139b26-cf87-4cf9-ba52-76471239e39a"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControlMid"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,11 +141,12 @@ public class @NoodleControls : IInputActionCollection, IDisposable
 }");
         // Noodle
         m_Noodle = asset.FindActionMap("Noodle", throwIfNotFound: true);
-        m_Noodle_Jump = m_Noodle.FindAction("Jump", throwIfNotFound: true);
+        m_Noodle_RaiseMid = m_Noodle.FindAction("RaiseMid", throwIfNotFound: true);
         m_Noodle_MoveHead = m_Noodle.FindAction("MoveHead", throwIfNotFound: true);
         m_Noodle_MoveTail = m_Noodle.FindAction("MoveTail", throwIfNotFound: true);
         m_Noodle_RaiseHead = m_Noodle.FindAction("RaiseHead", throwIfNotFound: true);
         m_Noodle_RaiseTail = m_Noodle.FindAction("RaiseTail", throwIfNotFound: true);
+        m_Noodle_ControlMid = m_Noodle.FindAction("ControlMid", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -176,20 +196,22 @@ public class @NoodleControls : IInputActionCollection, IDisposable
     // Noodle
     private readonly InputActionMap m_Noodle;
     private INoodleActions m_NoodleActionsCallbackInterface;
-    private readonly InputAction m_Noodle_Jump;
+    private readonly InputAction m_Noodle_RaiseMid;
     private readonly InputAction m_Noodle_MoveHead;
     private readonly InputAction m_Noodle_MoveTail;
     private readonly InputAction m_Noodle_RaiseHead;
     private readonly InputAction m_Noodle_RaiseTail;
+    private readonly InputAction m_Noodle_ControlMid;
     public struct NoodleActions
     {
         private @NoodleControls m_Wrapper;
         public NoodleActions(@NoodleControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Jump => m_Wrapper.m_Noodle_Jump;
+        public InputAction @RaiseMid => m_Wrapper.m_Noodle_RaiseMid;
         public InputAction @MoveHead => m_Wrapper.m_Noodle_MoveHead;
         public InputAction @MoveTail => m_Wrapper.m_Noodle_MoveTail;
         public InputAction @RaiseHead => m_Wrapper.m_Noodle_RaiseHead;
         public InputAction @RaiseTail => m_Wrapper.m_Noodle_RaiseTail;
+        public InputAction @ControlMid => m_Wrapper.m_Noodle_ControlMid;
         public InputActionMap Get() { return m_Wrapper.m_Noodle; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -199,9 +221,9 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_NoodleActionsCallbackInterface != null)
             {
-                @Jump.started -= m_Wrapper.m_NoodleActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_NoodleActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_NoodleActionsCallbackInterface.OnJump;
+                @RaiseMid.started -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRaiseMid;
+                @RaiseMid.performed -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRaiseMid;
+                @RaiseMid.canceled -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRaiseMid;
                 @MoveHead.started -= m_Wrapper.m_NoodleActionsCallbackInterface.OnMoveHead;
                 @MoveHead.performed -= m_Wrapper.m_NoodleActionsCallbackInterface.OnMoveHead;
                 @MoveHead.canceled -= m_Wrapper.m_NoodleActionsCallbackInterface.OnMoveHead;
@@ -214,13 +236,16 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                 @RaiseTail.started -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRaiseTail;
                 @RaiseTail.performed -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRaiseTail;
                 @RaiseTail.canceled -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRaiseTail;
+                @ControlMid.started -= m_Wrapper.m_NoodleActionsCallbackInterface.OnControlMid;
+                @ControlMid.performed -= m_Wrapper.m_NoodleActionsCallbackInterface.OnControlMid;
+                @ControlMid.canceled -= m_Wrapper.m_NoodleActionsCallbackInterface.OnControlMid;
             }
             m_Wrapper.m_NoodleActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
+                @RaiseMid.started += instance.OnRaiseMid;
+                @RaiseMid.performed += instance.OnRaiseMid;
+                @RaiseMid.canceled += instance.OnRaiseMid;
                 @MoveHead.started += instance.OnMoveHead;
                 @MoveHead.performed += instance.OnMoveHead;
                 @MoveHead.canceled += instance.OnMoveHead;
@@ -233,16 +258,20 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                 @RaiseTail.started += instance.OnRaiseTail;
                 @RaiseTail.performed += instance.OnRaiseTail;
                 @RaiseTail.canceled += instance.OnRaiseTail;
+                @ControlMid.started += instance.OnControlMid;
+                @ControlMid.performed += instance.OnControlMid;
+                @ControlMid.canceled += instance.OnControlMid;
             }
         }
     }
     public NoodleActions @Noodle => new NoodleActions(this);
     public interface INoodleActions
     {
-        void OnJump(InputAction.CallbackContext context);
+        void OnRaiseMid(InputAction.CallbackContext context);
         void OnMoveHead(InputAction.CallbackContext context);
         void OnMoveTail(InputAction.CallbackContext context);
         void OnRaiseHead(InputAction.CallbackContext context);
         void OnRaiseTail(InputAction.CallbackContext context);
+        void OnControlMid(InputAction.CallbackContext context);
     }
 }
