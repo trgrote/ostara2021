@@ -7,6 +7,8 @@ public class NoodleController : MonoBehaviour
 {
     NoodleControls controls;
 
+    [SerializeField] private Transform cameraDirection;
+
     private NoodlePhysics noodlePhysics;
     private Rigidbody headPart;
     private Rigidbody tailPart;
@@ -77,12 +79,12 @@ public class NoodleController : MonoBehaviour
         float t = Time.fixedDeltaTime;
         if (isControllingMid)
         {
-            midPart.AddForce(vector3FromXZ(headMoveVector) * midMoveForce * t, ForceMode.Force);
+            midPart.AddForce(movementVectorFromInput(headMoveVector) * midMoveForce * t, ForceMode.Force);
         }
         else
         {
-            headPart.AddForce(vector3FromXZ(headMoveVector) * endMoveForce * t, ForceMode.Force);
-            tailPart.AddForce(vector3FromXZ(tailMoveVector) * endMoveForce * t, ForceMode.Force);
+            headPart.AddForce(movementVectorFromInput(headMoveVector) * endMoveForce * t, ForceMode.Force);
+            tailPart.AddForce(movementVectorFromInput(tailMoveVector) * endMoveForce * t, ForceMode.Force);
         }
 
         // Can lift EITHER middle or ends
@@ -97,9 +99,11 @@ public class NoodleController : MonoBehaviour
         }
     }
 
-    Vector3 vector3FromXZ(Vector2 xz)
+    Vector3 movementVectorFromInput(Vector2 xz)
     {
-        return new Vector3(xz.x, 0, xz.y);
+        Quaternion direction = cameraDirection.rotation;
+        Vector3 movementVector = new Vector3(xz.x, 0, xz.y);
+        return direction * movementVector;
     }
 
     // void Jump()

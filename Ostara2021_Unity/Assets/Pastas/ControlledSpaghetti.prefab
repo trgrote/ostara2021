@@ -93,6 +93,10 @@ PrefabInstance:
       propertyPath: midMoveForce
       value: 18000
       objectReference: {fileID: 0}
+    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: cameraDirection
+      value: 
+      objectReference: {fileID: 5727637644839508810}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
 --- !u!1 &9169579386231378331 stripped
