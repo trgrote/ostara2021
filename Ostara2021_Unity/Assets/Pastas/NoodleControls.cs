@@ -65,6 +65,14 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""a7f439ad-399f-49ea-a004-bbacc3b30be4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -133,6 +141,39 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                     ""action"": ""ControlMid"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""4ddb002e-b254-4358-b2f7-739aac88e9a4"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""d5f41bd5-0bb3-42db-a193-3dd79ab160db"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""a0e4ba1f-8e82-4679-b560-62031b737bc5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -147,6 +188,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         m_Noodle_RaiseHead = m_Noodle.FindAction("RaiseHead", throwIfNotFound: true);
         m_Noodle_RaiseTail = m_Noodle.FindAction("RaiseTail", throwIfNotFound: true);
         m_Noodle_ControlMid = m_Noodle.FindAction("ControlMid", throwIfNotFound: true);
+        m_Noodle_Rotate = m_Noodle.FindAction("Rotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -202,6 +244,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Noodle_RaiseHead;
     private readonly InputAction m_Noodle_RaiseTail;
     private readonly InputAction m_Noodle_ControlMid;
+    private readonly InputAction m_Noodle_Rotate;
     public struct NoodleActions
     {
         private @NoodleControls m_Wrapper;
@@ -212,6 +255,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         public InputAction @RaiseHead => m_Wrapper.m_Noodle_RaiseHead;
         public InputAction @RaiseTail => m_Wrapper.m_Noodle_RaiseTail;
         public InputAction @ControlMid => m_Wrapper.m_Noodle_ControlMid;
+        public InputAction @Rotate => m_Wrapper.m_Noodle_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_Noodle; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -239,6 +283,9 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                 @ControlMid.started -= m_Wrapper.m_NoodleActionsCallbackInterface.OnControlMid;
                 @ControlMid.performed -= m_Wrapper.m_NoodleActionsCallbackInterface.OnControlMid;
                 @ControlMid.canceled -= m_Wrapper.m_NoodleActionsCallbackInterface.OnControlMid;
+                @Rotate.started -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRotate;
             }
             m_Wrapper.m_NoodleActionsCallbackInterface = instance;
             if (instance != null)
@@ -261,6 +308,9 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                 @ControlMid.started += instance.OnControlMid;
                 @ControlMid.performed += instance.OnControlMid;
                 @ControlMid.canceled += instance.OnControlMid;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
             }
         }
     }
@@ -273,5 +323,6 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         void OnRaiseHead(InputAction.CallbackContext context);
         void OnRaiseTail(InputAction.CallbackContext context);
         void OnControlMid(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }
