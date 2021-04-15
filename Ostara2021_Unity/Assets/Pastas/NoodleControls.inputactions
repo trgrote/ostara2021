@@ -1,0 +1,109 @@
+{
+    "name": "NoodleControls",
+    "maps": [
+        {
+            "name": "Noodle",
+            "id": "cce92585-2a19-4b33-af65-6592b1d2c393",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "561d305f-7dd6-455b-b100-dcd20856d22d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MoveHead",
+                    "type": "Value",
+                    "id": "7f08745e-4b5a-4ea0-82ce-9a3d4a773051",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MoveTail",
+                    "type": "Value",
+                    "id": "2d3f3cb4-0c7f-41b1-be6f-75b8b8fff814",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RaiseHead",
+                    "type": "Value",
+                    "id": "7a9a5ba1-7c19-4267-8748-889322ff6c78",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RaiseTail",
+                    "type": "Value",
+                    "id": "4fdd5d78-da69-4134-903e-684fd866e762",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9901b864-e16f-4b23-83a6-ad7912c7ee20",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fab5f509-fee9-419f-942d-0f124cce8f61",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHead",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48a4efd6-1448-4aec-aef3-a7a8266432bb",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveTail",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ac51709-4d42-4404-9c15-4e590228004f",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RaiseHead",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc2e71a3-e24d-4681-97f7-2ee23c6dc057",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RaiseTail",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
