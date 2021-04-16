@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6284322699907025756}
   - component: {fileID: 6284322699907025759}
   - component: {fileID: 6284322699907025757}
+  - component: {fileID: 7575421236168331593}
   m_Layer: 0
   m_Name: VCam_PlayerFollow
   m_TagString: Untagged
@@ -98,6 +99,20 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
+--- !u!114 &7575421236168331593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6284322699907025758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8556ecb903320a5438cdecf7463ab339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _noodleCameraTargetRef: {fileID: 11400000, guid: 9e98809907823f84fb6774594feb3f62, type: 2}
+  _camera: {fileID: 6284322699907025759}
 --- !u!1 &6284322700762477467
 GameObject:
   m_ObjectHideFlags: 0
