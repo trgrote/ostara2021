@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3849502516971129320}
   - component: {fileID: 3849502516971129321}
   - component: {fileID: 3849502516971129322}
+  - component: {fileID: 1889605282}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -139,6 +140,23 @@ MonoBehaviour:
       m_Calls: []
   _externState: {fileID: 11400000, guid: 012906e547c216d49a74bc896df38db2, type: 2}
   _overrideInitialValue: 1
+--- !u!114 &1889605282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3849502516971129323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffac01442879ad746b6fcb2230c145c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateRef: {fileID: 11400000, guid: 012906e547c216d49a74bc896df38db2, type: 2}
+  _start: {fileID: 11400000, guid: eb7f9bee77f28eb42b7b74f53e720ae6, type: 2}
+  _instructions: {fileID: 11400000, guid: 9162e5bbe2eedf448a3e79f2ed2e807e, type: 2}
+  _gameMode: {fileID: 11400000, guid: 5b9a9d4a225aac248a05c4e684657ba9, type: 2}
+  _levelComplete: {fileID: 11400000, guid: d8a1e16b65e8f9a43b25e72d1be33554, type: 2}
 --- !u!1001 &3618559369386252050
 PrefabInstance:
   m_ObjectHideFlags: 0
