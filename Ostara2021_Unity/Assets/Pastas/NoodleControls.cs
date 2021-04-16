@@ -209,6 +209,44 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""e267424a-2390-4808-991c-b5774eb3ba5b"",
+            ""actions"": [
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""53d8027c-112a-4c72-af8d-68a19b49fb69"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8c913f35-2b27-4a03-be57-428cf7c513f8"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd304747-2b58-4db6-a71c-40cb98849f8d"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -222,6 +260,9 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         m_Noodle_RaiseTail = m_Noodle.FindAction("RaiseTail", throwIfNotFound: true);
         m_Noodle_ControlMid = m_Noodle.FindAction("ControlMid", throwIfNotFound: true);
         m_Noodle_Rotate = m_Noodle.FindAction("Rotate", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Start = m_Menu.FindAction("Start", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -348,6 +389,39 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         }
     }
     public NoodleActions @Noodle => new NoodleActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Start;
+    public struct MenuActions
+    {
+        private @NoodleControls m_Wrapper;
+        public MenuActions(@NoodleControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Start => m_Wrapper.m_Menu_Start;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Start.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
+                @Start.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
+                @Start.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     public interface INoodleActions
     {
         void OnRaiseMid(InputAction.CallbackContext context);
@@ -357,5 +431,9 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         void OnRaiseTail(InputAction.CallbackContext context);
         void OnControlMid(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnStart(InputAction.CallbackContext context);
     }
 }
