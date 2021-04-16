@@ -703,7 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089a8f581f7067147be1dd0dd4cb8c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentMass: 1.25
+  segmentMass: 1.35
   colliderRadius: 0.001
   colliderHeight: 0.004
   twistability: 3.4
@@ -734,6 +734,7 @@ MonoBehaviour:
   tailGrabber: {fileID: 0}
   endMoveForce: 0
   midMoveForce: 0
+  moveVertAngle: 0
   endLiftForce: 0
   midLiftForce: 0
   grabCooldown: 0.5

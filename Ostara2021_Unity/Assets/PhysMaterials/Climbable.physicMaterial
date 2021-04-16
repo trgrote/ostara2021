@@ -7,8 +7,8 @@ PhysicMaterial:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Climbable
-  dynamicFriction: 200
-  staticFriction: 200
+  dynamicFriction: 20
+  staticFriction: 20
   bounciness: 0
   frictionCombine: 3
   bounceCombine: 1
