@@ -97,19 +97,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: endLiftForce
-      value: 12500
-      objectReference: {fileID: 0}
-    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
-      propertyPath: endMoveForce
-      value: 11500
-      objectReference: {fileID: 0}
-    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
-      propertyPath: midLiftForce
       value: 21000
       objectReference: {fileID: 0}
     - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: endMoveForce
+      value: 19320
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: midLiftForce
+      value: 33600
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: midMoveForce
-      value: 19500
+      value: 31200
       objectReference: {fileID: 0}
     - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: cameraDirection

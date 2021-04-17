@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class NoodlePhysics : MonoBehaviour
 {
-    [SerializeField] private float segmentMass = 1f;
+    [Header("Colliders")]
     [SerializeField] private float colliderRadius = 0.2f;
     [SerializeField] private float colliderHeight = 0.005f;
 
+    [Header("Joints")]
     [SerializeField] [Range(0, 90)] private float twistability = 10f;
     [SerializeField] [Range(0, 90)] private float bendability = 10f;
     [SerializeField] private float twistSpringiness = 1f;
@@ -16,6 +17,11 @@ public class NoodlePhysics : MonoBehaviour
     [SerializeField] private float bendSpringiness = 1f;
     [SerializeField] private float bendDampening = 1f;
     [SerializeField] private float bendContactDistance = 1f;
+
+    [Header("Mass")]
+    [SerializeField] private float segmentMass = 1f;
+    [SerializeField] private float headAndTailMassMultiplier = 1f;
+    [SerializeField] private float midSegmentMassMultiplier = 1f;
 
     [SerializeField] private PhysicMaterial colliderPhysicsMaterial;
 
@@ -45,9 +51,7 @@ public class NoodlePhysics : MonoBehaviour
     void Awake()
     {
         InitializeBones(transform);
-
-        print(bones);
-        print(bones.Count);
+        ApplyBoneModifications();
     }
 
     // Update is called once per frame
@@ -122,6 +126,14 @@ public class NoodlePhysics : MonoBehaviour
 
         // Recursive
         InitializeBones(child);
+    }
+
+    void ApplyBoneModifications()
+    {
+        FirstBone.GetComponent<Rigidbody>().mass = segmentMass * headAndTailMassMultiplier;
+        LastBone.GetComponent<Rigidbody>().mass = segmentMass * headAndTailMassMultiplier;
+
+        MidBone.GetComponent<Rigidbody>().mass = segmentMass * midSegmentMassMultiplier;
     }
 
     // Sets camera follow point to midpoint of first and last segment

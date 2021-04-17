@@ -703,7 +703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089a8f581f7067147be1dd0dd4cb8c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentMass: 1.35
   colliderRadius: 0.001
   colliderHeight: 0.004
   twistability: 3.4
@@ -714,6 +713,9 @@ MonoBehaviour:
   bendSpringiness: 1.69
   bendDampening: 4.27
   bendContactDistance: 2
+  segmentMass: 1.35
+  headAndTailMassMultiplier: 5
+  midSegmentMassMultiplier: 4
   colliderPhysicsMaterial: {fileID: 13400000, guid: 7f20dfc69ce71f5439b4b0ab32d79615, type: 2}
   cameraFollowPoint: {fileID: 4858789440255169140}
   bones: []
