@@ -715,6 +715,7 @@ MonoBehaviour:
   bendDampening: 7
   bendContactDistance: 3
   segmentMass: 1.35
+  segmentDrag: 0.05
   headAndTailMassMultiplier: 5
   midSegmentMassMultiplier: 4
   colliderPhysicsMaterial: {fileID: 13400000, guid: 7f20dfc69ce71f5439b4b0ab32d79615, type: 2}

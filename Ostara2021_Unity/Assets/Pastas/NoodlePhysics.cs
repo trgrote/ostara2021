@@ -19,8 +19,9 @@ public class NoodlePhysics : MonoBehaviour
     [SerializeField] private float bendDampening = 1f;
     [SerializeField] private float bendContactDistance = 1f;
 
-    [Header("Mass")]
+    [Header("Rigidbodies")]
     [SerializeField] private float segmentMass = 1f;
+    [SerializeField] private float segmentDrag = 1f;
     [SerializeField] private float headAndTailMassMultiplier = 1f;
     [SerializeField] private float midSegmentMassMultiplier = 1f;
 
@@ -74,6 +75,8 @@ public class NoodlePhysics : MonoBehaviour
         childRigidbody.isKinematic = false;
         childRigidbody.freezeRotation = false;
         childRigidbody.mass = segmentMass;
+        childRigidbody.drag = segmentDrag;
+        childRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
 
 
         // Collider
