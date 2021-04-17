@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "LockGrip",
+                    "type": "Button",
+                    "id": "eac70b6e-ca4f-48a3-8a04-e66ac93cbb42",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -176,7 +184,7 @@
                 {
                     "name": "negative",
                     "id": "7b55b586-a5c2-47b3-93d5-10fff68c6efa",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -187,13 +195,24 @@
                 {
                     "name": "positive",
                     "id": "44cd9419-b1ed-4ed9-83a5-210c9c874d47",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "4eb7be8f-c2be-4f94-94b0-9153d2ed758d",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LockGrip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

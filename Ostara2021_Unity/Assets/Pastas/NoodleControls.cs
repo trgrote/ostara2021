@@ -73,6 +73,14 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""LockGrip"",
+                    ""type"": ""Button"",
+                    ""id"": ""eac70b6e-ca4f-48a3-8a04-e66ac93cbb42"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -189,7 +197,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""7b55b586-a5c2-47b3-93d5-10fff68c6efa"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -200,13 +208,24 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""44cd9419-b1ed-4ed9-83a5-210c9c874d47"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4eb7be8f-c2be-4f94-94b0-9153d2ed758d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LockGrip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -260,6 +279,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         m_Noodle_RaiseTail = m_Noodle.FindAction("RaiseTail", throwIfNotFound: true);
         m_Noodle_ControlMid = m_Noodle.FindAction("ControlMid", throwIfNotFound: true);
         m_Noodle_Rotate = m_Noodle.FindAction("Rotate", throwIfNotFound: true);
+        m_Noodle_LockGrip = m_Noodle.FindAction("LockGrip", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Start = m_Menu.FindAction("Start", throwIfNotFound: true);
@@ -319,6 +339,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Noodle_RaiseTail;
     private readonly InputAction m_Noodle_ControlMid;
     private readonly InputAction m_Noodle_Rotate;
+    private readonly InputAction m_Noodle_LockGrip;
     public struct NoodleActions
     {
         private @NoodleControls m_Wrapper;
@@ -330,6 +351,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         public InputAction @RaiseTail => m_Wrapper.m_Noodle_RaiseTail;
         public InputAction @ControlMid => m_Wrapper.m_Noodle_ControlMid;
         public InputAction @Rotate => m_Wrapper.m_Noodle_Rotate;
+        public InputAction @LockGrip => m_Wrapper.m_Noodle_LockGrip;
         public InputActionMap Get() { return m_Wrapper.m_Noodle; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -360,6 +382,9 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                 @Rotate.started -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRotate;
                 @Rotate.performed -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRotate;
                 @Rotate.canceled -= m_Wrapper.m_NoodleActionsCallbackInterface.OnRotate;
+                @LockGrip.started -= m_Wrapper.m_NoodleActionsCallbackInterface.OnLockGrip;
+                @LockGrip.performed -= m_Wrapper.m_NoodleActionsCallbackInterface.OnLockGrip;
+                @LockGrip.canceled -= m_Wrapper.m_NoodleActionsCallbackInterface.OnLockGrip;
             }
             m_Wrapper.m_NoodleActionsCallbackInterface = instance;
             if (instance != null)
@@ -385,6 +410,9 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                 @Rotate.started += instance.OnRotate;
                 @Rotate.performed += instance.OnRotate;
                 @Rotate.canceled += instance.OnRotate;
+                @LockGrip.started += instance.OnLockGrip;
+                @LockGrip.performed += instance.OnLockGrip;
+                @LockGrip.canceled += instance.OnLockGrip;
             }
         }
     }
@@ -431,6 +459,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         void OnRaiseTail(InputAction.CallbackContext context);
         void OnControlMid(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnLockGrip(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

@@ -80,6 +80,11 @@ public class NoodleController : MonoBehaviour
         controls.Noodle.RaiseHead.canceled += ctx => headGrabber.EnableRelease(true);
         controls.Noodle.RaiseTail.canceled += ctx => tailGrabber.EnableRelease(true);
 
+        // Lock grab/release state while button is held
+        controls.Noodle.LockGrip.performed += ctx => headGrabber.isLocked = true;
+        controls.Noodle.LockGrip.canceled += ctx => headGrabber.isLocked = false;
+        controls.Noodle.LockGrip.performed += ctx => tailGrabber.isLocked = true;
+        controls.Noodle.LockGrip.canceled += ctx => tailGrabber.isLocked = false;
 
         // Middle Controls
         controls.Noodle.RaiseMid.performed += ctx => midLift = 1f;

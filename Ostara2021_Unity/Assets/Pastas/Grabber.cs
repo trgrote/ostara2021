@@ -5,14 +5,13 @@ using UnityEngine;
 public class Grabber : MonoBehaviour
 {
     private HingeJoint joint;
+
+    public bool isLocked = false;
     private bool isReleaseEnabled = false;
     private bool isGrabEnabled = true;
+    private bool isGrabbing = false;
     public float releaseToGrabCooldown = 0.5f;
     private float nextGrabbableTime = 0f;
-
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -32,22 +31,25 @@ public class Grabber : MonoBehaviour
 
     void Grab(Rigidbody rbToGrab)
     {
-        if (isGrabEnabled && Time.time >= nextGrabbableTime)
+        if (!isLocked && isGrabEnabled && !isGrabbing && Time.time >= nextGrabbableTime)
         {
+            // Controller will re-enable release when lift button is released
             EnableRelease(false);
             GameObject.Destroy(joint);
             joint = gameObject.AddComponent<HingeJoint>();
             joint.connectedBody = rbToGrab;
             joint.enableCollision = false;
+            isGrabbing = true;
         }
     }
 
     public void Release()
     {
-        if (isReleaseEnabled)
+        if (!isLocked && isReleaseEnabled && isGrabbing)
         {
             nextGrabbableTime = Time.time + releaseToGrabCooldown;
             GameObject.Destroy(joint);
+            isGrabbing = false;
             EnableRelease(false);
         }
     }
