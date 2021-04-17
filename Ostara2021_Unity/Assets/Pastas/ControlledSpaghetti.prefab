@@ -35,6 +35,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4653922675511810461, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: colliderHeight
+      value: 0.0038
+      objectReference: {fileID: 0}
     - target: {fileID: 5124172207394708527, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_RootOrder
       value: 0

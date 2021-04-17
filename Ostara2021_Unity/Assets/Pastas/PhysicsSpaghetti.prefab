@@ -705,14 +705,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderRadius: 0.001
   colliderHeight: 0.004
+  collisionLayer: 8
   twistability: 3.4
   bendability: 5.8
   twistSpringiness: 0.07
-  twistDampening: 1.77
+  twistDampening: 4
   twistContactDistance: 5
   bendSpringiness: 1.69
-  bendDampening: 4.27
-  bendContactDistance: 2
+  bendDampening: 7
+  bendContactDistance: 3
   segmentMass: 1.35
   headAndTailMassMultiplier: 5
   midSegmentMassMultiplier: 4

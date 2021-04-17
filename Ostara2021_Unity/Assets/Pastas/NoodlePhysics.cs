@@ -7,6 +7,7 @@ public class NoodlePhysics : MonoBehaviour
     [Header("Colliders")]
     [SerializeField] private float colliderRadius = 0.2f;
     [SerializeField] private float colliderHeight = 0.005f;
+    [SerializeField] private int collisionLayer = 0;
 
     [Header("Joints")]
     [SerializeField] [Range(0, 90)] private float twistability = 10f;
@@ -68,7 +69,6 @@ public class NoodlePhysics : MonoBehaviour
         bones.Add(child);
 
         // Rigidbody
-        print("adding rigidbody to" + child.name);
         var childRigidbody = child.gameObject.AddComponent<Rigidbody>();
         childRigidbody.useGravity = true;
         childRigidbody.isKinematic = false;
@@ -78,6 +78,7 @@ public class NoodlePhysics : MonoBehaviour
 
         // Collider
         var collider = child.gameObject.AddComponent<CapsuleCollider>();
+        child.gameObject.layer = collisionLayer;
         collider.center = Vector3.zero;
         collider.radius = colliderRadius;
         collider.height = colliderHeight;

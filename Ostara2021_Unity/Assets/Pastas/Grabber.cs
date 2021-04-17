@@ -54,7 +54,7 @@ public class Grabber : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.layer == 7)
+        if (col.gameObject.layer == 7 || col.gameObject.tag == "grabbable")
         {
             Grab(col.gameObject.GetComponent<Rigidbody>());
         }
