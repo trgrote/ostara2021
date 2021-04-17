@@ -16,11 +16,9 @@ public class Mousetrap : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        print("mousetrap hit");
         GameObject other = col.gameObject;
         if (isActive && other.layer == collisionLayer)
         {
-            print("mousetrap triggered");
             isActive = false;
             Rigidbody otherRb = other.GetComponent<Rigidbody>();
             Vector3 worldLaunchDirection = transform.TransformVector(launchDirection).normalized;

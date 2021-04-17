@@ -127,6 +127,19 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!65 &2035422556437834164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509838061307478263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4999999, y: 0.8999999, z: 0.100000046}
+  m_Center: {x: 0.05000001, y: 0.44999996, z: 0.049999863}
 --- !u!1 &3859339447724520675
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,8 +153,8 @@ GameObject:
   - component: {fileID: 5745568834748961017}
   - component: {fileID: 3415079197202796922}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: golden-meatball-goal
+  m_TagString: goldenmeatballgoal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,8 +167,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3859339447724520675}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27989197, y: 49.707554, z: 58.88764}
-  m_LocalScale: {x: 20.726204, y: 0.1, z: 2.475146}
+  m_LocalPosition: {x: 0.27989197, y: 49.707554, z: 59.44}
+  m_LocalScale: {x: 20.726204, y: 0.1, z: 3.1280897}
   m_Children: []
   m_Father: {fileID: 1262030159021721894}
   m_RootOrder: 1
@@ -352,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8875585321395141982, guid: 1320e22458007084cb4ea0bf57b476da, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60.08764
+      value: 60.99
       objectReference: {fileID: 0}
     - target: {fileID: 8875585321395141982, guid: 1320e22458007084cb4ea0bf57b476da, type: 3}
       propertyPath: m_LocalRotation.w
@@ -387,5 +400,10 @@ PrefabInstance:
 --- !u!4 &7075752029880836756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8875585321395141982, guid: 1320e22458007084cb4ea0bf57b476da, type: 3}
+  m_PrefabInstance: {fileID: 1810015115486322634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1509838061307478263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1002739898500685629, guid: 1320e22458007084cb4ea0bf57b476da, type: 3}
   m_PrefabInstance: {fileID: 1810015115486322634}
   m_PrefabAsset: {fileID: 0}

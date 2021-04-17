@@ -171,7 +171,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Shoulder Buttons",
+                    "name": "D-Pad",
                     "id": "f3d6d6a8-cf14-489b-a045-a739aefe0a6c",
                     "path": "1DAxis",
                     "interactions": "",
@@ -204,9 +204,42 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "4eb7be8f-c2be-4f94-94b0-9153d2ed758d",
+                    "name": "Shoulder Buttons",
+                    "id": "4c901fb5-6a11-4f9b-aec7-031e6824f3f6",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "eb66397c-4b40-4e9d-bac6-4d155f738afb",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "bcb2d741-6dc0-4bf1-870b-cab6daeccd6b",
                     "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c5b084f6-a01c-4220-8cb3-9486339b2bf0",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

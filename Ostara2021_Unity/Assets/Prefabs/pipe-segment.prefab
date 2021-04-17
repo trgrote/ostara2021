@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6508357092064105281}
   - component: {fileID: 389099131583336125}
   - component: {fileID: 596994120542421678}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: holder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 7583013171601102873}
   - component: {fileID: 5870926480922368816}
   - component: {fileID: 7947437078325288618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: holderring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9210198382441224445}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pipe-segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 1324188904562485240}
   - component: {fileID: 3237036761010805377}
   - component: {fileID: 696361878199932314}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: holderring (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 1080126795690151891}
   - component: {fileID: 2424220331727686956}
   - component: {fileID: 6124001732895530746}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 4716613425859480471}
   - component: {fileID: 6445564536009290656}
   - component: {fileID: 5085895365538626645}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: holder1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
