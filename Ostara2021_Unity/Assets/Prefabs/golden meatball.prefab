@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ec574eb14cf0c4ca5f849d8ca5db71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMeatballRun: {fileID: 11400000, guid: e778857279fb10149afe6e5252d4bf41, type: 2}

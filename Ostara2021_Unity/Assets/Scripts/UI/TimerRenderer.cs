@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class TimerRenderer : MonoBehaviour
 {
     [SerializeField] rho.ExternalVariable<float> _timerValue;
+    [SerializeField] rho.ExternalVariable<bool> _isMeatballRun;
     [SerializeField] Text _text;
-
+    [SerializeField] Color _standardColor;
+    [SerializeField] Color _meatballColor;
     // Update is called once per frame
     void Update()
     {
         string formatted = _timerValue.Value.ToString("0.00");
-        _text.text = $"Timer: {formatted}";
+        string runType = _isMeatballRun.Value ? "meatball%" : "any%";
+        _text.text = $"{runType}: {formatted}";
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GoldenMeatball : MonoBehaviour
 {
+    [SerializeField] rho.ExternalVariable<bool> _isMeatballRun;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class GoldenMeatball : MonoBehaviour
     {
         if (col.gameObject.CompareTag("goldenmeatballgoal"))
         {
-            print("Meatball% run!");
+            _isMeatballRun.Value = true;
         }
     }
 }

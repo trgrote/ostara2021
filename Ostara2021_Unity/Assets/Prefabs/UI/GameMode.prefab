@@ -106,7 +106,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6ebe3e3394fa8dd4084353d796e27611, type: 3}
     m_FontSize: 32
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -130,7 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerValue: {fileID: 11400000, guid: ebf2ff5abbe6add4eb3bae6029a101f8, type: 2}
+  _isMeatballRun: {fileID: 11400000, guid: e778857279fb10149afe6e5252d4bf41, type: 2}
   _text: {fileID: 530187494938289519}
+  _standardColor: {r: 1, g: 1, b: 1, a: 1}
+  _meatballColor: {r: 0, g: 0.6, b: 0.85882354, a: 1}
 --- !u!1 &5446569264973701985
 GameObject:
   m_ObjectHideFlags: 0
