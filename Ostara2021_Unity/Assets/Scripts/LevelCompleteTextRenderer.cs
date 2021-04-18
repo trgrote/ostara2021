@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,6 @@ public class LevelCompleteTextRenderer : MonoBehaviour
 
     void Update()
     {
-        _text.text = $"You escape Belluca's Bistro in {_timerValue.Value} seconds";
+        _text.text = String.Format("You escape Belluca's Bistro in {0:0.0} seconds", _timerValue.Value);
     }
 }
