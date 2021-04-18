@@ -227,6 +227,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isGripLocked: {fileID: 11400000, guid: 3757523e5e6c05e4dba04b6cac3f92ae, type: 2}
-  _lockedColor: {r: 0.89411765, g: 0.23137255, b: 0.26666668, a: 0}
-  _unlockedColor: {r: 1, g: 1, b: 1, a: 0}
+  _lockedColor: {r: 0.89411765, g: 0.23137255, b: 0.26666668, a: 1}
+  _unlockedColor: {r: 1, g: 1, b: 1, a: 1}
   _text: {fileID: 3222419928451651431}

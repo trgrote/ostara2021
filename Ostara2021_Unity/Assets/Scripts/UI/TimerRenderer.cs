@@ -15,6 +15,7 @@ public class TimerRenderer : MonoBehaviour
     {
         string formatted = _timerValue.Value.ToString("0.00");
         string runType = _isMeatballRun.Value ? "meatball%" : "any%";
-        _text.text = $"{runType}: {formatted}";
+        _text.color = _isMeatballRun.Value ? _standardColor : _meatballColor;
+        _text.text = string.Format("{}: {}", runType, formatted);
     }
 }
