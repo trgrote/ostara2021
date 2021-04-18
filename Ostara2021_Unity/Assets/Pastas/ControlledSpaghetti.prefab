@@ -82,6 +82,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 36207656063408671, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: m_TagString
+      value: pasta
+      objectReference: {fileID: 0}
     - target: {fileID: 1145551792829615418, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -121,6 +125,10 @@ PrefabInstance:
     - target: {fileID: 4858789440255169140, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858789440255169140, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: m_TagString
+      value: pasta
       objectReference: {fileID: 0}
     - target: {fileID: 5069423979311595164, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_Layer
@@ -182,9 +190,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlledSpaghetti
       objectReference: {fileID: 0}
+    - target: {fileID: 5500979637183874709, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: m_TagString
+      value: pasta
+      objectReference: {fileID: 0}
     - target: {fileID: 5688717902885621205, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688717902885621205, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: m_TagString
+      value: pasta
       objectReference: {fileID: 0}
     - target: {fileID: 5968180568613981342, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_Layer
@@ -198,9 +214,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8227836401291802052, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: m_TagString
+      value: pasta
+      objectReference: {fileID: 0}
     - target: {fileID: 8580689413769641166, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580689413769641166, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+      propertyPath: m_TagString
+      value: pasta
       objectReference: {fileID: 0}
     - target: {fileID: 8851962437734696617, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_Layer
