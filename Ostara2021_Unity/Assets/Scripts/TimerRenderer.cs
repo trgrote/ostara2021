@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,6 @@ public class TimerRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _text.text = $"Timer: {_timerValue.Value}";
+        _text.text = String.Format("Time: {0:0.0}",_timerValue.Value);
     }
 }
