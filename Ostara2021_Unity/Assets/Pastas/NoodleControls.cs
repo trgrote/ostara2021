@@ -273,6 +273,14 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Backstory"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a3f9197-56e6-40a7-be2a-47e74c1a7212"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -297,6 +305,28 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                     ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9da09c26-2753-4337-99ac-0be86bece172"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Backstory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a77888ba-4146-4674-8c9a-183dd9747548"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Backstory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -316,6 +346,7 @@ public class @NoodleControls : IInputActionCollection, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Start = m_Menu.FindAction("Start", throwIfNotFound: true);
+        m_Menu_Backstory = m_Menu.FindAction("Backstory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -455,11 +486,13 @@ public class @NoodleControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_Start;
+    private readonly InputAction m_Menu_Backstory;
     public struct MenuActions
     {
         private @NoodleControls m_Wrapper;
         public MenuActions(@NoodleControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Start => m_Wrapper.m_Menu_Start;
+        public InputAction @Backstory => m_Wrapper.m_Menu_Backstory;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -472,6 +505,9 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                 @Start.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnStart;
+                @Backstory.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnBackstory;
+                @Backstory.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnBackstory;
+                @Backstory.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnBackstory;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -479,6 +515,9 @@ public class @NoodleControls : IInputActionCollection, IDisposable
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
+                @Backstory.started += instance.OnBackstory;
+                @Backstory.performed += instance.OnBackstory;
+                @Backstory.canceled += instance.OnBackstory;
             }
         }
     }
@@ -497,5 +536,6 @@ public class @NoodleControls : IInputActionCollection, IDisposable
     public interface IMenuActions
     {
         void OnStart(InputAction.CallbackContext context);
+        void OnBackstory(InputAction.CallbackContext context);
     }
 }

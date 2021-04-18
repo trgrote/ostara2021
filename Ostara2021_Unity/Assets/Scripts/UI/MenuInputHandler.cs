@@ -14,12 +14,14 @@ public class MenuInputHandler : MonoBehaviour
     [SerializeField] rho.StateScriptableObject _instructions;
     [SerializeField] rho.StateScriptableObject _gameMode;
     [SerializeField] rho.StateScriptableObject _levelComplete;
+    [SerializeField] rho.StateScriptableObject _backstory;
 
     void Awake()
     {
         _controls = new NoodleControls();
 
         _controls.Menu.Start.performed += OnMenuStartPerformed;
+        _controls.Menu.Backstory.performed += OnBackstoryPerformed;
     }
 
     void OnEnable()
@@ -44,10 +46,25 @@ public class MenuInputHandler : MonoBehaviour
             // Go to Next State
             _stateRef.Value = _gameMode;
         }
-        else if(_stateRef.Value == _levelComplete)
+        else if (_stateRef.Value == _levelComplete)
         {
             // Restart game
-            _stateRef.Value = _start;            
+            _stateRef.Value = _start;
+        }
+        else if (_stateRef.Value == _backstory)
+        {
+            // Restart game
+            _stateRef.Value = _start;
+        }
+    }
+
+    void OnBackstoryPerformed(CallbackContext ctx)
+    {
+        if (_stateRef.Value == _gameMode) { return; }
+
+        if (_stateRef.Value = _start)
+        {
+            _stateRef.Value = _backstory;
         }
     }
 }

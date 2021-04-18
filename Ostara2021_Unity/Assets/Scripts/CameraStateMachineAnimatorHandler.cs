@@ -12,6 +12,7 @@ public class CameraStateMachineAnimatorHandler : MonoBehaviour
     [SerializeField] StateScriptableObject _instructions;
     [SerializeField] StateScriptableObject _gameMode;
     [SerializeField] StateScriptableObject _levelComplete;
+    [SerializeField] StateScriptableObject _backstory;
 
     // Compare State Values and Trigger Appropriate Animation event when state changes
     public void OnStateChanged(StateScriptableObject oldState, StateScriptableObject newState)
@@ -29,6 +30,10 @@ public class CameraStateMachineAnimatorHandler : MonoBehaviour
             _animator.SetTrigger("ToGameMode");
         }
         else if (newState == _levelComplete)
+        {
+            _animator.SetTrigger("ToLevelComplete");
+        }
+        else if (newState == _backstory)
         {
             _animator.SetTrigger("ToLevelComplete");
         }

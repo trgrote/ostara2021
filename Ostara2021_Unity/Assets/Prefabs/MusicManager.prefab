@@ -246,3 +246,4 @@ MonoBehaviour:
   _vintageStates:
   - {fileID: 11400000, guid: eb7f9bee77f28eb42b7b74f53e720ae6, type: 2}
   - {fileID: 11400000, guid: 9162e5bbe2eedf448a3e79f2ed2e807e, type: 2}
+  - {fileID: 11400000, guid: f73d44663d0a52046b941d1a0d75c14a, type: 2}
