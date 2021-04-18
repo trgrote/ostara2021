@@ -14,6 +14,7 @@ public class ExternTransformRegister : MonoBehaviour
 
     void OnDisable()
     {
-        _transformRef.Value = null;
+        if (_transformRef.Value == _transform)
+            _transformRef.Value = null;
     }
 }
