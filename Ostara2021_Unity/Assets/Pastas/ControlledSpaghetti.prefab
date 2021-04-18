@@ -1,5 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1875398008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420569310277238561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c486ae3e078ca4e841f943aecc29de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _force: {x: 15, y: 15, z: 0}
+  _gameMode: {fileID: 11400000, guid: 5b9a9d4a225aac248a05c4e684657ba9, type: 2}
+  _noodlePhysics: {fileID: 8987793537122736754}
+--- !u!114 &1875398009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420569310277238561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c5e8c007a7beb4bb16fdc485f83b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateRef: {fileID: 11400000, guid: 012906e547c216d49a74bc896df38db2, type: 2}
+  _onStateChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1875398008}
+        m_TargetAssemblyTypeName: PlateFlipNoodleLauncher, Assembly-CSharp
+        m_MethodName: OnStateChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &565031764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,15 +84,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5124172207394708527, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.45
+      value: 0.036494017
       objectReference: {fileID: 0}
     - target: {fileID: 5124172207394708527, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.74
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 5124172207394708527, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -47.29
+      value: 0.003299266
       objectReference: {fileID: 0}
     - target: {fileID: 5124172207394708527, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -103,3 +146,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8309608094880798885, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
   m_PrefabInstance: {fileID: 4336122696053343215}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5420569310277238561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8580689413769641166, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+  m_PrefabInstance: {fileID: 4336122696053343215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8987793537122736754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4653922675511810461, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
+  m_PrefabInstance: {fileID: 4336122696053343215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420569310277238561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089a8f581f7067147be1dd0dd4cb8c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

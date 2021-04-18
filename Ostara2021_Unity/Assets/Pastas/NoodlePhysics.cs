@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NoodlePhysics : MonoBehaviour
@@ -45,6 +46,8 @@ public class NoodlePhysics : MonoBehaviour
     {
         get => bones[bones.Count / 2];
     }
+
+    public List<Rigidbody> AllRigidBodies => bones.Select(bone => bone.GetComponent<Rigidbody>()).ToList();
 
     // [SerializeField] private GameObject partPrefab, parentObject;
     // [SerializeField] [Range(1, 100)] private int segments = 5;
