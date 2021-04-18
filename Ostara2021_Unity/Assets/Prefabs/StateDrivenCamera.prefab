@@ -195,11 +195,7 @@ MonoBehaviour:
   m_AnimatedTarget: {fileID: 854523597409827432}
   m_LayerIndex: 0
   m_ShowDebugText: 0
-  m_ChildCameras:
-  - {fileID: 854523596897055647}
-  - {fileID: 854523597071815275}
-  - {fileID: 6696156226706456716}
-  - {fileID: 854523597853230925}
+  m_ChildCameras: []
   m_Instructions:
   - m_FullHash: -604752631
     m_VirtualCamera: {fileID: 854523596897055647}
@@ -718,10 +714,6 @@ PrefabInstance:
     - target: {fileID: 6284322699907025758, guid: 7080663f0786edd44a41e2d98789f227, type: 3}
       propertyPath: m_Name
       value: VCam_PlayerFollow
-      objectReference: {fileID: 0}
-    - target: {fileID: 6284322700762477465, guid: 7080663f0786edd44a41e2d98789f227, type: 3}
-      propertyPath: m_FollowOffset.y
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7080663f0786edd44a41e2d98789f227, type: 3}
