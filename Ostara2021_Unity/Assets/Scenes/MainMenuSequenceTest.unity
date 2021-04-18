@@ -468,10 +468,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlledSpaghetti
       objectReference: {fileID: 0}
-    - target: {fileID: 8104904055249454458, guid: 647a2a1d014b754459740eea8005dbd1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8877078545259831232, guid: 647a2a1d014b754459740eea8005dbd1, type: 3}
       propertyPath: m_RootOrder
       value: 1
