@@ -60,9 +60,7 @@ public class MenuInputHandler : MonoBehaviour
 
     void OnBackstoryPerformed(CallbackContext ctx)
     {
-        if (_stateRef.Value == _gameMode) { return; }
-
-        if (_stateRef.Value = _start)
+        if (_stateRef.Value == _start)
         {
             _stateRef.Value = _backstory;
         }

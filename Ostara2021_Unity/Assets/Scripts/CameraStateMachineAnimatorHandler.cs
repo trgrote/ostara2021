@@ -35,7 +35,7 @@ public class CameraStateMachineAnimatorHandler : MonoBehaviour
         }
         else if (newState == _backstory)
         {
-            _animator.SetTrigger("ToLevelComplete");
+            _animator.SetTrigger("ToBackStory");
         }
     }
 }
