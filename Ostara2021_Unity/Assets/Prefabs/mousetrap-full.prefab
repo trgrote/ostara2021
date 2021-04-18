@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f98b12236499c43a8e0407b3d0a22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchDirection: {x: 0.1, y: 1, z: 0}
-  launchPower: 600
+  launchDirection: {x: 0.35, y: 1, z: 0}
+  launchPower: 500
   collisionLayer: 8
   isActive: 1
 --- !u!1 &6870133649118840302
