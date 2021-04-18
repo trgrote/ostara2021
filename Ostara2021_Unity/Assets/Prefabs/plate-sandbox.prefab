@@ -515,26 +515,53 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!95 &1961279660
-Animator:
-  serializedVersion: 3
+--- !u!1 &1999045570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999045571}
+  m_Layer: 0
+  m_Name: ForcePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1999045571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999045570}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.578, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5252506912988636389}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &421720364
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3914340882868254686}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bac52f16621096544bec87b360bf3e9d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 1
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1961279661
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6742df7b2bd04d646a8560ea200e8bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _body: {fileID: 4097042528724702022}
+  _force: {x: 25, y: 25, z: 0}
+  _position: {fileID: 1999045571}
+  _gameMode: {fileID: 11400000, guid: 5b9a9d4a225aac248a05c4e684657ba9, type: 2}
+--- !u!114 &421720365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -543,11 +570,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3914340882868254686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 842368d0df1fecd4a804d4592aa78b6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 86c5e8c007a7beb4bb16fdc485f83b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 1961279660}
-  _rigidBody: {fileID: 4097042528724702022}
+  _stateRef: {fileID: 11400000, guid: 012906e547c216d49a74bc896df38db2, type: 2}
+  _onStateChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 421720364}
+        m_TargetAssemblyTypeName: PlateFlipper, Assembly-CSharp
+        m_MethodName: OnStateChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1002132324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,6 +628,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3161498210882202413, guid: 319a27fe9fc234f45bd56637ab3de2ab, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3161498210882202413, guid: 319a27fe9fc234f45bd56637ab3de2ab, type: 3}
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
@@ -604,7 +649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6021568483162254806, guid: 319a27fe9fc234f45bd56637ab3de2ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6021568483162254806, guid: 319a27fe9fc234f45bd56637ab3de2ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -656,6 +701,11 @@ PrefabInstance:
       objectReference: {fileID: 13400000, guid: 642bb9beb1af39c47b5c9d16931a39ce, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 319a27fe9fc234f45bd56637ab3de2ab, type: 3}
+--- !u!4 &5252506912988636389 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6620533976339569806, guid: 319a27fe9fc234f45bd56637ab3de2ab, type: 3}
+  m_PrefabInstance: {fileID: 1370356140929939563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3914340882868254686 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2690606028491444149, guid: 319a27fe9fc234f45bd56637ab3de2ab, type: 3}

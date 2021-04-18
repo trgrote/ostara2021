@@ -468,6 +468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlledSpaghetti
       objectReference: {fileID: 0}
+    - target: {fileID: 8104904055249454458, guid: 647a2a1d014b754459740eea8005dbd1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8877078545259831232, guid: 647a2a1d014b754459740eea8005dbd1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -478,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8877078545259831232, guid: 647a2a1d014b754459740eea8005dbd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.20000005
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 8877078545259831232, guid: 647a2a1d014b754459740eea8005dbd1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -531,7 +535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653505977255302589, guid: 4b8dcce04d97b70488e8cb25bd8b1123, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4653505977255302589, guid: 4b8dcce04d97b70488e8cb25bd8b1123, type: 3}
       propertyPath: m_LocalPosition.z
