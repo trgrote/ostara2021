@@ -44,5 +44,10 @@ public class MenuInputHandler : MonoBehaviour
             // Go to Next State
             _stateRef.Value = _gameMode;
         }
+        else if(_stateRef.Value == _levelComplete)
+        {
+            // Restart game
+            _stateRef.Value = _start;            
+        }
     }
 }
