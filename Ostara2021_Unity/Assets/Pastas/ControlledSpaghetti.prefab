@@ -35,10 +35,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4653922675511810461, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
-      propertyPath: colliderHeight
-      value: 0.0038
-      objectReference: {fileID: 0}
     - target: {fileID: 5124172207394708527, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -95,30 +91,6 @@ PrefabInstance:
       propertyPath: moveForce
       value: 20000
       objectReference: {fileID: 0}
-    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
-      propertyPath: alwaysGrab
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
-      propertyPath: endLiftForce
-      value: 21000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
-      propertyPath: endMoveForce
-      value: 19320
-      objectReference: {fileID: 0}
-    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
-      propertyPath: midLiftForce
-      value: 33600
-      objectReference: {fileID: 0}
-    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
-      propertyPath: midMoveForce
-      value: 31200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8865923707878413025, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
-      propertyPath: cameraDirection
-      value: 
-      objectReference: {fileID: 5727637644839508810}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70e5ba6f09076744b3ac43f5b6a20c8, type: 3}
 --- !u!1 &9169579386231378331 stripped

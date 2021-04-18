@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderRadius: 0.001
-  colliderHeight: 0.004
+  colliderHeight: 0.0038
   collisionLayer: 8
   twistability: 3.4
   bendability: 5.8
@@ -733,16 +733,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edbfc79588390045bccae2e784dc7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraDirection: {fileID: 0}
+  cameraDirection: {fileID: 8309608094880798885}
   headGrabber: {fileID: 0}
   tailGrabber: {fileID: 0}
-  endMoveForce: 0
-  midMoveForce: 0
+  endMoveForce: 19320
+  midMoveForce: 31200
   moveVertAngle: 0
-  endLiftForce: 0
-  midLiftForce: 0
+  endLiftForce: 21000
+  midLiftForce: 33600
   grabCooldown: 0.5
-  alwaysGrab: 0
+  alwaysGrab: 1
+  isGripLocked: {fileID: 11400000, guid: 3757523e5e6c05e4dba04b6cac3f92ae, type: 2}
 --- !u!1 &8851962437734696617
 GameObject:
   m_ObjectHideFlags: 0

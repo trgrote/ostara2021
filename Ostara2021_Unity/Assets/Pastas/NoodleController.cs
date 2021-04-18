@@ -49,6 +49,7 @@ public class NoodleController : MonoBehaviour
     private float midLift;
 
 
+    [SerializeField] rho.ExternalVariable<bool> isGripLocked;
 
     // Start is called before the first frame update
     void Awake()
@@ -81,8 +82,7 @@ public class NoodleController : MonoBehaviour
         controls.Noodle.RaiseTail.canceled += ctx => tailGrabber.EnableRelease(true);
 
         // Lock grab/release state while button is held
-        controls.Noodle.LockGrip.performed += ctx => headGrabber.isLocked = !headGrabber.isLocked;
-        controls.Noodle.LockGrip.performed += ctx => tailGrabber.isLocked = !tailGrabber.isLocked;
+        controls.Noodle.LockGrip.performed += ctx => ToggleGripLock();
 
         // Middle Controls
         controls.Noodle.RaiseMid.performed += ctx => midLift = 1f;
@@ -116,7 +116,7 @@ public class NoodleController : MonoBehaviour
 
         headGrabber = MakeGrabber(head.gameObject);
         tailGrabber = MakeGrabber(tail.gameObject);
-
+        isGripLocked.Value = false;
     }
 
     void FixedUpdate()
@@ -144,6 +144,13 @@ public class NoodleController : MonoBehaviour
             headPart.AddForce(new Vector3(0, headLift, 0) * endLiftForce * t, ForceMode.Force);
             tailPart.AddForce(new Vector3(0, tailLift, 0) * endLiftForce * t, ForceMode.Force);
         }
+    }
+
+    void ToggleGripLock()
+    {
+        isGripLocked.Value = !isGripLocked.Value;
+        headGrabber.isLocked = isGripLocked.Value;
+        tailGrabber.isLocked = isGripLocked.Value;
     }
 
     void CheckAndReleaseGrabbers()
