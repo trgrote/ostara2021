@@ -125,4 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ec574eb14cf0c4ca5f849d8ca5db71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMeatballTouched: {fileID: 11400000, guid: e5ba555a9e8972a49ba75b20d7a63963, type: 2}
+  _meatballTimeSplit: {fileID: 11400000, guid: 80690b60106a75a47bed25ff349748b6, type: 2}
   _isMeatballRun: {fileID: 11400000, guid: e778857279fb10149afe6e5252d4bf41, type: 2}
+  _timer: {fileID: 11400000, guid: ebf2ff5abbe6add4eb3bae6029a101f8, type: 2}
