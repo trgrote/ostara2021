@@ -8,9 +8,12 @@ public class Mousetrap : MonoBehaviour
     [SerializeField] private float launchPower;
     [SerializeField] private int collisionLayer = 8;
     [SerializeField] private bool isActive;
+
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         isActive = true;
     }
 
@@ -20,6 +23,7 @@ public class Mousetrap : MonoBehaviour
         if (isActive && other.layer == collisionLayer)
         {
             isActive = false;
+            audioSource.Play();
             Rigidbody otherRb = other.GetComponent<Rigidbody>();
             Vector3 worldLaunchDirection = transform.TransformVector(launchDirection).normalized;
             otherRb.AddForce(Vector3.zero, ForceMode.VelocityChange);
