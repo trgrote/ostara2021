@@ -11,7 +11,7 @@ public class LevelResetter : MonoBehaviour
 
     public void OnNoodleCameraSpawn(rho.ExternalVariable<rho.StateScriptableObject> sender, rho.StateScriptableObject oldValue, rho.StateScriptableObject newValue)
     {
-        if (newValue == _start)
+        if (oldValue != _start && newValue == _start)
         {
             if (_currentResettable)
             {
