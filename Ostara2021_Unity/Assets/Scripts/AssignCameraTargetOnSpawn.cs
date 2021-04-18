@@ -11,6 +11,7 @@ public class AssignCameraTargetOnSpawn : MonoBehaviour
     void OnEnable()
     {
         _noodleCameraTargetRef.Changed += OnNoodleCameraSpawn;
+        OnNoodleCameraSpawn(null, null, _noodleCameraTargetRef.Value);
     }
 
     void OnDisable()
