@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c486ae3e078ca4e841f943aecc29de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: {x: 15, y: 15, z: 0}
+  _force: {x: 7, y: 12, z: 0}
   _gameMode: {fileID: 11400000, guid: 5b9a9d4a225aac248a05c4e684657ba9, type: 2}
   _noodlePhysics: {fileID: 8987793537122736754}
 --- !u!114 &1875398009
