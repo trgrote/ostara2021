@@ -21,7 +21,6 @@ public class RoombaPhysics : MonoBehaviour
 
     private float currentTurnTime = 0.0f;
     private float currentBackupTime = 0.0f;
-    private float destinationAngle = 0.0f;
     private Rigidbody rb;
 
     // Start is called before the first frame update
@@ -86,7 +85,7 @@ public class RoombaPhysics : MonoBehaviour
     private void OnCollisionEnter(Collision col)
     {
         // don't back up from hitting the floor or the player
-        if (!col.gameObject.CompareTag("floor") && col.gameObject.layer != 6)
+        if (!col.gameObject.CompareTag("floor") && !col.gameObject.CompareTag("pasta"))
         {
             BackUp();
         }

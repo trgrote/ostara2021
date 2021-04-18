@@ -9,6 +9,7 @@ public class NoodlePhysics : MonoBehaviour
     [SerializeField] private float colliderRadius = 0.2f;
     [SerializeField] private float colliderHeight = 0.005f;
     [SerializeField] private int collisionLayer = 0;
+    [SerializeField] private string collisionTag = "pasta";
 
     [Header("Joints")]
     [SerializeField] [Range(0, 90)] private float twistability = 10f;
@@ -85,6 +86,7 @@ public class NoodlePhysics : MonoBehaviour
         // Collider
         var collider = child.gameObject.AddComponent<CapsuleCollider>();
         child.gameObject.layer = collisionLayer;
+        child.gameObject.tag = collisionTag;
         collider.center = Vector3.zero;
         collider.radius = colliderRadius;
         collider.height = colliderHeight;
