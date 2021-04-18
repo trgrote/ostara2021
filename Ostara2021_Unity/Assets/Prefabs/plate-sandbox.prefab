@@ -545,6 +545,33 @@ Transform:
   m_Father: {fileID: 5252506912988636389}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1002132324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467162876328660743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8535410f9152ab41bb2d47aeb9a8acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _states:
+  - Name: {fileID: 11400000, guid: eb7f9bee77f28eb42b7b74f53e720ae6, type: 2}
+    Behaviors: []
+    GameObjects:
+    - {fileID: 1195340838}
+  - Name: {fileID: 11400000, guid: 9162e5bbe2eedf448a3e79f2ed2e807e, type: 2}
+    Behaviors: []
+    GameObjects:
+    - {fileID: 1195340838}
+  _startingState: {fileID: 0}
+  _stateChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _externState: {fileID: 11400000, guid: 012906e547c216d49a74bc896df38db2, type: 2}
+  _overrideInitialValue: 0
 --- !u!114 &421720364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,33 +616,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1002132324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5467162876328660743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8535410f9152ab41bb2d47aeb9a8acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _states:
-  - Name: {fileID: 11400000, guid: eb7f9bee77f28eb42b7b74f53e720ae6, type: 2}
-    Behaviors: []
-    GameObjects:
-    - {fileID: 1195340838}
-  - Name: {fileID: 11400000, guid: 9162e5bbe2eedf448a3e79f2ed2e807e, type: 2}
-    Behaviors: []
-    GameObjects:
-    - {fileID: 1195340838}
-  _startingState: {fileID: 0}
-  _stateChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  _externState: {fileID: 11400000, guid: 012906e547c216d49a74bc896df38db2, type: 2}
-  _overrideInitialValue: 0
 --- !u!1001 &1370356140929939563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -623,6 +623,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1364305939675380807, guid: 319a27fe9fc234f45bd56637ab3de2ab, type: 3}
+      propertyPath: _playShiftSound
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3161498210882202413, guid: 319a27fe9fc234f45bd56637ab3de2ab, type: 3}
       propertyPath: m_Drag
       value: 0
