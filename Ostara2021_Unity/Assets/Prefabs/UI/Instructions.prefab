@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076294, y: 55.1}
-  m_SizeDelta: {x: 433.5828, y: 97.3181}
+  m_AnchoredPosition: {x: -0.0000076294, y: 7.000023}
+  m_SizeDelta: {x: 518.9, y: 204.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1762303103463850078
 CanvasRenderer:
@@ -78,9 +78,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Use the left and right triggers to lift up the sides of the noodle, use
-    the\r sticks to move.\nA to lift middle of noodle, X+left stick to move middle
-    of noodle"
+  m_Text: 'Each stick moves one end of the noodle.
+
+    Each trigger lifts up one
+    end of the noodle.
+
+
+    A lifts middle of noodle
+
+    X+left stick moves middle
+    of noodle.
+
+
+    Y to toggle grip/release lock for climbing.
+
+
+    Bumpers to
+    move camera.'
 --- !u!1 &1113641851281990245
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +211,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Escape the Resturant in the Fastest Time Possible
+  m_Text: Escape the Restaurant in the Fastest Time Possible
 --- !u!1 &8108282039166179347
 GameObject:
   m_ObjectHideFlags: 0

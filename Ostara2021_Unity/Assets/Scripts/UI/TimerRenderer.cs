@@ -11,6 +11,7 @@ public class TimerRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _text.text = $"Timer: {_timerValue.Value}";
+        string formatted = _timerValue.Value.ToString("0.00");
+        _text.text = $"Timer: {formatted}";
     }
 }
