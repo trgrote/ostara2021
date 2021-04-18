@@ -19,11 +19,11 @@ public class TimerRenderer : MonoBehaviour
     void Update()
     {
         _runTypeText.text = _isMeatballRun.Value ? "meatball%" : "any%";
-        _runTypeText.color = _isMeatballRun.Value ? _standardColor : _meatballColor;
+        _runTypeText.color = _isMeatballRun.Value ? _meatballColor : _standardColor;
 
-        _meatballSplitText.text = "(optional) Get Meatball: " + (_isMeatballTouched ? _meatballTimeSplit.Value.ToString("0.00") : "----");
-        _meatballSplitText.color = _isMeatballTouched ? _meatballColor : _translucentColor;
-        _meatballSplitText.fontStyle = FontStyle.Bold;
+        _meatballSplitText.text = "(optional) Get Meatball: " + (_isMeatballTouched.Value ? _meatballTimeSplit.Value.ToString("0.00") : "----");
+        _meatballSplitText.color = _isMeatballTouched.Value ? _meatballColor : _translucentColor;
+        _meatballSplitText.fontStyle = _isMeatballTouched.Value ? FontStyle.Bold : FontStyle.Normal;
 
         _totalText.text = "Finish: " + _timerValue.Value.ToString("0.00");
     }
