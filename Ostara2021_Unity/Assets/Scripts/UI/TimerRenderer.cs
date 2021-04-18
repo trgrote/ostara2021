@@ -13,9 +13,9 @@ public class TimerRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string formatted = _timerValue.Value.ToString("0.00");
+        string formattedTime = _timerValue.Value.ToString("0.00");
         string runType = _isMeatballRun.Value ? "meatball%" : "any%";
         _text.color = _isMeatballRun.Value ? _standardColor : _meatballColor;
-        _text.text = string.Format("{}: {}", runType, formatted);
+        _text.text = $"{runType}: {formattedTime}";
     }
 }
