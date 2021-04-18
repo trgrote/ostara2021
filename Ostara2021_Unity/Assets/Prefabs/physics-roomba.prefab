@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 20000
+  moveImpulseForce: 18000
   turnForce: 30000
   turnTime: 1
   backupTime: 1

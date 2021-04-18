@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoombaPhysics : MonoBehaviour
 {
     [SerializeField] private float moveForce = 10000.0f;
+    [SerializeField] private float moveImpulseForce = 1000.0f;
     [SerializeField] private float turnForce = 1000.0f;
     [SerializeField] private float turnTime = 1.0f;
     [SerializeField] private float backupTime = 1.0f;
@@ -65,6 +66,7 @@ public class RoombaPhysics : MonoBehaviour
     void GoForward()
     {
         Stop();
+        rb.AddRelativeForce(Vector3.forward * moveImpulseForce); // give a lil boost
         currentState = State.forward;
     }
 
@@ -83,8 +85,8 @@ public class RoombaPhysics : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        print("Collision!");
-        if (!col.gameObject.CompareTag("floor"))
+        // don't back up from hitting the floor or the player
+        if (!col.gameObject.CompareTag("floor") && col.gameObject.layer != 6)
         {
             BackUp();
         }
