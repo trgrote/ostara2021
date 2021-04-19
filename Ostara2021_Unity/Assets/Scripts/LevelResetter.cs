@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Restarts the Level when the Game State Transitions to the Start state
 public class LevelResetter : MonoBehaviour
 {
     [SerializeField] GameObject _resettable;
